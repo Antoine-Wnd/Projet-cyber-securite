@@ -1,0 +1,24 @@
+{
+  "name": "xss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "postcss static/styles.css -o static/tailwind.css",
+    "watch:css": "postcss static/styles.css -o static/tailwind.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.4",
+    "validator": "^13.12.0"
+  }
+}

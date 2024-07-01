@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center">
+    <header class="w-full bg-blue-600 p-4 text-white text-center mb-8">
+      <h1 class="text-3xl font-bold">Admin Page</h1>
+    </header>
+    <main class="flex-1 w-full max-w-4xl p-4 bg-white rounded shadow-md">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">User List</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <% for(let user in users) { %>
+          <li>
+            <a
+              href="/admin/user/<%= users[user].id %>"
+              class="text-blue-500 underline"
+              ><%= user %></a
+            >
+            (Role: <%= users[user].role %>)
+          </li>
+          <% } %>
+        </ul>
+      </section>
+    </main>
+    <footer class="w-full bg-gray-800 p-4 text-white text-center mt-8">
+      <p>&copy; 2024 Football Predictions</p>
+    </footer>
+  </body>
+</html>

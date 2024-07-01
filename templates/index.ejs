@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prédiction Euro 2024</title>
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center">
+    <header
+      class="w-full bg-blue-600 p-4 text-white flex justify-between text-center mb-8"
+    >
+      <h1 class="text-3xl font-bold">Prédiction Euro 2024</h1>
+      <% if (userId) { %>
+      <a
+        href="/logout"
+        class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+        >Logout</a
+      >
+      <% } else { %>
+      <a
+        href="/login"
+        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+        >Login</a
+      >
+      <% } %>
+    </header>
+    <main class="flex-1 w-full max-w-4xl p-4 bg-white rounded shadow-md">
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Envoyer vos prédictions</h2>
+        <form action="/predict" method="post" class="space-y-4">
+          <div>
+            <label for="user" class="block text-gray-700">Nom</label>
+            <input
+              type="text"
+              id="user"
+              name="user"
+              placeholder="Votre nom"
+              required
+              pattern="^[a-zA-Z0-9\s]+$"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label for="match" class="block text-gray-700">Match</label>
+            <input
+              type="text"
+              id="match"
+              name="match"
+              placeholder="Match (e.g., Pays - Pays)"
+              required
+              pattern="^[a-zA-Z0-9\s]+$"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label for="prediction" class="block text-gray-700"
+              >Votre prédiction</label
+            >
+            <input
+              type="text"
+              id="prediction"
+              name="prediction"
+              placeholder="Votre prédiction"
+              required
+              pattern="^[a-zA-Z0-9\s]+$"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+            >
+              Envoyer
+            </button>
+          </div>
+        </form>
+      </section>
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Prédiction</h2>
+        <ul class="space-y-2">
+          <% predictions.forEach(prediction => { %>
+          <li class="border-b pb-2">
+            <strong class="text-blue-600"><%= prediction.user %></strong>:
+            <span class="text-gray-700"
+              ><%= prediction.match %> - <%- prediction.prediction %></span
+            >
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+    <footer class="w-full bg-gray-800 p-4 text-white text-center mt-8">
+      <p>&copy; 2024 AntoineW</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prédictions</title>
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center">
+    <header class="w-full bg-blue-600 p-4 text-white text-center mb-8">
+      <h1 class="text-3xl font-bold">Prédictions de <%= user %></h1>
+    </header>
+    <main class="flex-1 w-full max-w-4xl p-4 bg-white rounded shadow-md">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Prédictions</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <% predictions.forEach(prediction => { %> <% if (prediction.user ===
+          user) { %>
+          <li class="border-b pb-2">
+            <span class="text-gray-700"
+              ><%= prediction.match %> - <%= prediction.prediction %></span
+            >
+          </li>
+          <% } %> <% }) %>
+        </ul>
+      </section>
+    </main>
+    <footer class="w-full bg-gray-800 p-4 text-white text-center mt-8">
+      <p>&copy; 2024 Football Predictions</p>
+    </footer>
+  </body>
+</html>
